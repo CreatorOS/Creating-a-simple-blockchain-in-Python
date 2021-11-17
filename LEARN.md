@@ -27,9 +27,9 @@ class Chain:
 
     def __init__(self):
 
-        self.blockchain = \[\]
+        self.blockchain = []
 
-        self.pending = \[\]
+        self.pending = []
 
         self.add_block(prevhash="Genesis", proof=123)
 
@@ -91,11 +91,11 @@ def add_block(self, proof, prevhash=None):
 
         "proof": proof,
 
-        "prevhash": prevhash or self.compute_hash(self.blockchain\[-1\])
+        "prevhash": prevhash or self.compute_hash(self.blockchain[-1])
 
     }
 
-    self.pending = \[\]
+    self.pending = []
 
     self.blockchain.append(block)
 
