@@ -59,7 +59,7 @@ def add_transaction(self, sender, recipient, amount):
 
 ```
 
-# Computing hashes
+## Computing hashes
 
 A hash is a fingerprint of some data. For example, if we pass “hello, world” to SHA-256 (a hashing algorithm), we might get something like 0xd34db33f. Since no two blocks will have the exact same transactions, we can use SHA-256 to create a unique identifier for the block. From now on, we can reference a certain block by using this ID called block hash.
 
@@ -73,7 +73,7 @@ def compute_hash(self, block):
 
 We’re getting a JSON representation of the data in the block and returning the hash of the JSON block.
 
-# Adding blocks
+## Adding blocks
 
 This is the centerpiece of our Chain class. This adds a block to the chain and illustrates some of the central pieces of data we need.
 
@@ -111,7 +111,7 @@ The `block` dictionary stores the following:
 
 Then, we empty the list of pending transactions since they’ve all been packed into our block. Finally, we append the block to our blockchain.
 
-# Testing it out!
+## Testing it out!
 
 Add the following code to the end of the file.
 
