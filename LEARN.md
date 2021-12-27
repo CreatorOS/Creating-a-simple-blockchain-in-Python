@@ -63,6 +63,7 @@ def add_transaction(self, sender, recipient, amount):
 
 A hash is a fingerprint of some data. For example, if we pass “hello, world” to SHA-256 (a hashing algorithm), we might get something like 0xd34db33f. Since no two blocks will have the exact same transactions, we can use SHA-256 to create a unique identifier for the block. From now on, we can reference a certain block by using this ID called block hash.
 
+```
 def compute_hash(self, block):
 
     json_block = json.dumps(block, sort_keys=True).encode()
@@ -70,6 +71,7 @@ def compute_hash(self, block):
     curhash = sha256(json_block).hexdigest()
 
     return curhash
+```
 
 We’re getting a JSON representation of the data in the block and returning the hash of the JSON block.
 
