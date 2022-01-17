@@ -131,7 +131,7 @@ chain.add_block(12345)
 
 t4 = chain.add_transaction("Bob", "Eve", 23)
 
-t4 = chain.add_transaction("Dennis", "Brian", 3)
+t5 = chain.add_transaction("Dennis", "Brian", 3)
 
 t6 = chain.add_transaction("Ken", "Doug", 88)
 
