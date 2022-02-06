@@ -5,7 +5,7 @@ Let’s jump in directly.
 ## Imports
 We’ll need to import some libraries to start out. So open up a new file in your preferred text editor and add the following:
 
-```
+```python
 
 from hashlib import sha256
 
@@ -21,7 +21,7 @@ Let’s use Python’s object-oriented features to our benefit. We’ll create a
 
 A blockchain is a ledger of “blocks” and blocks are a collection of transactions. Each block in the blockchain is linked to its predecessor. Let’s create a class that will serve as our blockchain:
 
-```
+```python
 
 class Chain:
 
@@ -41,7 +41,7 @@ When we’re adding transactions to the blockchain, what we’re really doing is
 
 Let’s write a method for adding a transaction to our list of pending transactions. The transaction will be a dictionary containing the name of the sender, recipient, and the amount to be sent. Add this to your `Chain` class:
 
-```
+```python
 
 def add_transaction(self, sender, recipient, amount):
 
@@ -63,7 +63,8 @@ def add_transaction(self, sender, recipient, amount):
 
 A hash is a fingerprint of some data. For example, if we pass “hello, world” to SHA-256 (a hashing algorithm), we might get something like 0xd34db33f. Since no two blocks will have the exact same transactions, we can use SHA-256 to create a unique identifier for the block. From now on, we can reference a certain block by using this ID called block hash.
 
-```
+```python
+
 def compute_hash(self, block):
 
     json_block = json.dumps(block, sort_keys=True).encode()
@@ -79,7 +80,7 @@ We’re getting a JSON representation of the data in the block and returning the
 
 This is the centerpiece of our Chain class. This adds a block to the chain and illustrates some of the central pieces of data we need.
 
-```
+```python
 
 def add_block(self, proof, prevhash=None):
 
@@ -117,7 +118,7 @@ Then, we empty the list of pending transactions since they’ve all been packed 
 
 Add the following code to the end of the file.
 
-```
+```python
 
 chain = Chain()
 
@@ -143,9 +144,12 @@ print(chain.blockchain)
 
 We’re declaring a blockchain, adding a few transactions and appending a few blocks to our blockchain. The output should look like the following mess:
 
-```
-
-[{'index': 0, 'timestamp': 1632420052.3950083, 'transactions': [], 'proof': 123, 'prevhash': 'Genesis'}, {'index': 1, 'timestamp': 1632420052.395048, 'transactions': [{'sender': 'Vitalik', 'recipient': 'Satoshi', 'amount': 100}, {'sender': 'Satoshi', 'recipient': 'Alice', 'amount': 10}, {'sender': 'Alice', 'recipient': 'Charlie', 'amount': 34}], 'proof': 12345, 'prevhash': '29b7a19fb6dd8dc4f9cd7eb304b51b30952bd2e6655101e8f656b48ce1b4c02c'}, {'index': 2, 'timestamp': 1632420052.395426, 'transactions': [{'sender': 'Bob', 'recipient': 'Eve', 'amount': 23}, {'sender': 'Dennis', 'recipient': 'Brian', 'amount': 3}, {'sender': 'Ken', 'recipient': 'Doug', 'amount': 88}], 'proof': 6789, 'prevhash': '3596ee87ced42041f5c4e1820c4e8c426e608ea061f1daa4bbac0a0f76cad41a'}]
+```python
+[
+  {'index': 0, 'timestamp': 1632420052.3950083, 'transactions': [], 'proof': 123, 'prevhash': 'Genesis'}, 
+  {'index': 1, 'timestamp': 1632420052.395048, 'transactions': [{'sender': 'Vitalik', 'recipient': 'Satoshi', 'amount': 100}, {'sender': 'Satoshi', 'recipient': 'Alice', 'amount': 10}, {'sender': 'Alice', 'recipient': 'Charlie', 'amount': 34}], 'proof': 12345, 'prevhash': '29b7a19fb6dd8dc4f9cd7eb304b51b30952bd2e6655101e8f656b48ce1b4c02c'}, 
+  {'index': 2, 'timestamp': 1632420052.395426, 'transactions': [{'sender': 'Bob', 'recipient': 'Eve', 'amount': 23}, {'sender': 'Dennis', 'recipient': 'Brian', 'amount': 3}, {'sender': 'Ken', 'recipient': 'Doug', 'amount': 88}], 'proof': 6789, 'prevhash': '3596ee87ced42041f5c4e1820c4e8c426e608ea061f1daa4bbac0a0f76cad41a'}
+]
 
 ```
 ## What next
